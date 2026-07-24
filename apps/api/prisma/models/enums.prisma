@@ -1,0 +1,95 @@
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum Position {
+  S
+  OH
+  OP
+  MB
+  L
+}
+
+enum DominantHand {
+  LEFT
+  RIGHT
+}
+
+enum PlayerStatus {
+  ACTIVE
+  INACTIVE
+  INJURED
+  RETIRED
+}
+
+enum TeamStatus {
+  ACTIVE
+  INACTIVE
+  DISSOLVED
+}
+
+enum CompetitionGender {
+  MEN
+  WOMEN
+  MIXED
+}
+
+enum CompetitionLevel {
+  CLUB
+  NATIONAL
+  SCHOOL
+  COLLEGE
+}
+
+enum VolleyballDiscipline {
+  INDOOR
+  BEACH
+  SNOW
+  SITTING
+}
+
+enum SeasonStatus {
+  UPCOMING
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+enum MatchStatus {
+  SCHEDULED
+  LIVE
+  FINISHED
+  CANCELLED
+  POSTPONED
+}
+
+enum OfficialRole {
+  FIRST_REFEREE
+  SECOND_REFEREE
+  SCORER
+  LINE_JUDGE
+}
+
+enum EventType {
+  POINT
+  ACE
+  BLOCK
+  ATTACK
+  ERROR
+  TIMEOUT
+  SUBSTITUTION
+  CHALLENGE
+  CARD
+}
+
+enum CompetitionStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum VenueStatus {
+  ACTIVE
+  INACTIVE
+}

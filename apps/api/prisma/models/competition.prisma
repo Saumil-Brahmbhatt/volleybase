@@ -1,0 +1,23 @@
+model Competition {
+  id                String              @id @default(cuid())
+
+  competitionId     String              @unique
+
+  slug              String              @unique
+
+  organizationId    String
+
+  name              String
+  shortName         String
+
+  gender            CompetitionGender
+
+  level             CompetitionLevel
+
+  discipline        VolleyballDiscipline
+
+  status            CompetitionStatus
+
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+}

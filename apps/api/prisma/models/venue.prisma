@@ -1,0 +1,21 @@
+model Venue {
+  id            String      @id @default(cuid())
+
+  venueId       String      @unique
+
+  slug          String      @unique
+
+  name          String
+
+  city          String
+
+  country       String
+  countryCode   String
+
+  capacity      Int?
+
+  status        VenueStatus
+
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}

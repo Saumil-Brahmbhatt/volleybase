@@ -1,0 +1,34 @@
+model Player {
+  id             String         @id @default(cuid())
+  playerId       String         @unique
+  slug           String         @unique
+
+  fullName       String
+  shortName      String
+
+  firstName      String
+  lastName       String
+  nativeName     String?
+
+  gender         Gender
+
+  nationality    String
+
+  birthDate      DateTime
+  birthPlace     String
+
+  heightCm       Int
+  weightKg       Int?
+
+  spikeReachCm   Int?
+  blockReachCm   Int?
+
+  dominantHand   DominantHand
+
+  position       Position
+
+  status         PlayerStatus
+
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+}

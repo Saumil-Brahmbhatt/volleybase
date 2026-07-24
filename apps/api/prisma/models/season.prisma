@@ -1,0 +1,20 @@
+model Season {
+  id             String        @id @default(cuid())
+
+  seasonId       String        @unique
+
+  competitionId  String
+
+  name           String
+
+  seasonYear     Int
+
+  startDate      DateTime
+
+  endDate        DateTime
+
+  status         SeasonStatus
+
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}

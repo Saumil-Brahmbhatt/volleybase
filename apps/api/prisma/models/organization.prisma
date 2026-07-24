@@ -1,0 +1,17 @@
+model Organization {
+  id             String @id @default(cuid())
+
+  organizationId String @unique
+
+  slug           String @unique
+
+  name           String
+  shortName      String
+
+  foundedYear    Int?
+
+  status         OrganizationStatus
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
