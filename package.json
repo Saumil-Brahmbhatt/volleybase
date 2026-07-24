@@ -1,0 +1,9 @@
+{
+  "name": "volleybase",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Home of Volleyball.",
+  "license": "MIT",
+  "scripts": {},
+  "packageManager": "pnpm@11.17.0"
+}
