@@ -3,7 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import healthRoutes from "./modules/health/routes";
-import { errorHandler } from "./middleware/error.middleware";
+import { errorMiddleware } from "./middleware/error.middleware";
 import { notFound } from "./middleware/notFound.middleware";
 import { playerRoutes } from "./modules/players";
 import { organizationRoutes } from "./modules/organizations";
@@ -28,6 +28,6 @@ app.get("/", (_req, res) => {
 });
 
 app.use(notFound);
-app.use(errorHandler);
+app.use(errorMiddleware);
 
 export default app;

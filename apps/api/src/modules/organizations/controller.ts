@@ -1,8 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 
 import {
-  getOrganization,
   getOrganizations,
+  getOrganization,
+  createOrganization,
 } from "./service";
 
 export async function getAllOrganizations(
@@ -32,14 +33,24 @@ export async function getOrganizationById(
       req.params.organizationId
     );
 
-    if (!organization) {
-      return res.status(404).json({
-        success: false,
-        message: "Organization not found.",
-      });
-    }
-
     res.json({
+      success: true,
+      data: organization,
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function create(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  try {
+    const organization = await createOrganization(req.body);
+
+    res.status(201).json({
       success: true,
       data: organization,
     });

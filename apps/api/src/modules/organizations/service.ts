@@ -1,4 +1,18 @@
+import { OrganizationStatus } from "@prisma/client";
+
 import prisma from "../../lib/prisma";
+import { IdService } from "../../lib/id.service";
+
+import { generateSlug } from "../../utils/slug";
+
+import {
+  ConflictError,
+  NotFoundError,
+} from "../../errors";
+
+import {
+  CreateOrganizationDto,
+} from "./dto";
 
 import {
   toOrganizationSummaryDto,
@@ -25,8 +39,49 @@ export async function getOrganization(
   });
 
   if (!organization) {
-    return null;
+    throw new NotFoundError("Organization");
   }
+
+  return toOrganizationDetailsDto(organization);
+}
+
+export async function createOrganization(
+  dto: CreateOrganizationDto
+) {
+  const existing = await prisma.organization.findFirst({
+    where: {
+      OR: [
+        {
+          name: dto.name,
+        },
+        {
+          shortName: dto.shortName,
+        },
+      ],
+    },
+  });
+
+  if (existing) {
+    throw new ConflictError(
+      "Organization already exists."
+    );
+  }
+
+  const organization = await prisma.organization.create({
+    data: {
+      organizationId: await IdService.generate("organization"),
+
+      slug: generateSlug(dto.name),
+
+      name: dto.name,
+
+      shortName: dto.shortName,
+
+      status:
+        dto.status ??
+        OrganizationStatus.ACTIVE,
+    },
+  });
 
   return toOrganizationDetailsDto(organization);
 }
