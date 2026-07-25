@@ -29,7 +29,7 @@ model Player {
 
   status         PlayerStatus
 
-  playerSeasons  PlayerSeasons[]
+  playerSeasons  PlayerSeason[]
   playerMatchStats PlayerMatchStats[]
 
   createdAt      DateTime       @default(now())

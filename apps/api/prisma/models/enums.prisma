@@ -99,3 +99,8 @@ enum OfficialStatus {
   INACTIVE
   RETIRED
 }
+
+enum OrganizationStatus {
+  ACTIVE
+  INACTIVE
+}

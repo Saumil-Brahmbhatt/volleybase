@@ -27,7 +27,7 @@ model Match {
 
   status        MatchStatus
 
-  season        Season      @relation(feilds: [seasonId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  season        Season      @relation(fields: [seasonId], references: [id], onDelete: Restrict, onUpdate: Cascade)
   venue         Venue?      @relation(fields: [venueId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
   homeTeam      Team        @relation("HomeTeam", fields: [homeTeamId], references: [id], onDelete: Restrict, onUpdate: Cascade)
