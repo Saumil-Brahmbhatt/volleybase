@@ -1,13 +1,20 @@
 import express from "express";
 import cors from "cors";
-import { API_PREFIX } from "./constants/api";
-import healthRoutes from "./routes/health.routes";
+import helmet from "helmet";
+import morgan from "morgan";
+import healthRoutes from "./modules/health/routes";
+import { errorHandler } from "./middleware/error.middleware";
+import { notFound } from "./middleware/notFound.middleware";
+import { playerRoutes } from "./modules/players";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(`${API_PREFIX}/health`, healthRoutes);
+app.use(helmet());
+app.use(morgan("dev"));
+app.use("/api/v1/health", healthRoutes);
+app.use("/api/v1/players", playerRoutes);
 
 app.get("/", (_req, res) => {
   res.json({
@@ -17,5 +24,8 @@ app.get("/", (_req, res) => {
     message: "Welcome to The Home of Volleyball 🏐"
   });
 });
+
+app.use(notFound);
+app.use(errorHandler);
 
 export default app;
