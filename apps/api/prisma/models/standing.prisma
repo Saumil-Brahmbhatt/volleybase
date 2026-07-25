@@ -4,27 +4,31 @@ model Standing {
   standingId       String @unique
 
   seasonId         String
-
   teamId           String
 
   matchesPlayed    Int @default(0)
 
   wins             Int @default(0)
-
   losses           Int @default(0)
 
   setsWon          Int @default(0)
-
   setsLost         Int @default(0)
 
   pointsWon        Int @default(0)
-
   pointsLost       Int @default(0)
 
   leaguePoints     Int @default(0)
 
   rank             Int?
 
+  season           Season @relation(fields: [seasonId], references: [id])
+  team             Team   @relation(fields: [teamId], references: [id])
+
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
+
+  @@index([seasonId])
+  @@index([teamId])
+
+  @@unique([seasonId, teamId])
 }

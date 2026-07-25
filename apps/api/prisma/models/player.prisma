@@ -30,6 +30,7 @@ model Player {
   status         PlayerStatus
 
   playerSeasons  PlayerSeasons[]
+  playerMatchStats PlayerMatchStats[]
 
   createdAt      DateTime       @default(now())
   updatedAt      DateTime       @updatedAt

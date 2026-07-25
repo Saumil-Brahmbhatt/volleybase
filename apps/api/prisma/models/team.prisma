@@ -19,13 +19,14 @@ model Team {
   status           TeamStatus
 
   organization     Organization? @relation(feilds: [organizationId], refrences: [id])
-  homeVenue       Venue?        @relation(fields: [homeVenueId], references: [id])
+  homeVenue        Venue?        @relation(fields: [homeVenueId], references: [id])
 
-  playerSeasons   PlayerSeason[]
-  standings       Standing[]
+  playerSeasons    PlayerSeason[]
+  teamMatchStats   TeamMatchStats[]
+  standings        Standing[]
 
-  homeMatches     Match[] @relation("HomeTeam")
-  awayMatches     Match[] @relation("AwayTeam")
+  homeMatches      Match[] @relation("HomeTeam")
+  awayMatches      Match[] @relation("AwayTeam")
 
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
