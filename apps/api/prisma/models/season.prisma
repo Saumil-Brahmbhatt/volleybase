@@ -17,6 +17,10 @@ model Season {
 
   competition    Competition   @relation(feilds:[competitionId],refrences[id])
 
+  playerSeasons  PlayerSeason[]
+  matches        Match[]
+  standings      Standing[]
+
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
 

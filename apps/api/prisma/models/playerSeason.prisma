@@ -11,11 +11,11 @@ model PlayerSeason {
 
   jerseyNumber       Int
 
-  isCaptain          Boolean @default(false)
+  isCaptain          Boolean     @default(false)
 
-  isViceCaptain      Boolean @default(false)
+  isViceCaptain      Boolean     @default(false)
 
-  isForeignPlayer    Boolean @default(false)
+  isForeignPlayer    Boolean     @default(false)
 
   joinedAt           DateTime?
 
@@ -23,6 +23,16 @@ model PlayerSeason {
 
   status             PlayerStatus
 
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  player             Player      @relation(fields: [playerId], references: [id])
+  team               Team        @relation(fields: [teamId], references: [id])
+  season             Season      @relation(fields: [seasonId], references: [id])
+
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+
+  @@index([playerId])
+  @@index([teamId])
+  @@index([seasonId])
+
+  @@unique([playerId, seasonId])
 }

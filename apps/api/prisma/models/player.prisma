@@ -29,6 +29,8 @@ model Player {
 
   status         PlayerStatus
 
+  playerSeasons  PlayerSeasons[]
+
   createdAt      DateTime       @default(now())
   updatedAt      DateTime       @updatedAt
 }
