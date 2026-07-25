@@ -18,7 +18,7 @@ model Competition {
 
   status            CompetitionStatus
 
-  organization      Organization        @relation(feilds: [organizationId], refrences: [id])
+  organization      Organization        @relation(feilds: [organizationId], refrences: [id], onDelete: Restrict, onUpdate: Cascade)
 
   seasons           Season[]
 

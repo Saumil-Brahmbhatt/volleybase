@@ -23,9 +23,9 @@ model PlayerSeason {
 
   status             PlayerStatus
 
-  player             Player      @relation(fields: [playerId], references: [id])
-  team               Team        @relation(fields: [teamId], references: [id])
-  season             Season      @relation(fields: [seasonId], references: [id])
+  player             Player      @relation(fields: [playerId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  team               Team        @relation(fields: [teamId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  season             Season      @relation(fields: [seasonId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
   createdAt          DateTime    @default(now())
   updatedAt          DateTime    @updatedAt

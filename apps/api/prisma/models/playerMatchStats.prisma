@@ -31,9 +31,9 @@ model PlayerMatchStats {
   yellowCards            Int @default(0)
   redCards               Int @default(0)
 
-  match                  Match  @relation(fields: [matchId], references: [id])
-  player                 Player @relation(fields: [playerId], references: [id])
-  team                   Team   @relation(fields: [teamId], references: [id])
+  match                  Match  @relation(fields: [matchId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  player                 Player @relation(fields: [playerId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  team                   Team   @relation(fields: [teamId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
   createdAt              DateTime @default(now())
   updatedAt              DateTime @updatedAt

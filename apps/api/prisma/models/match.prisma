@@ -27,12 +27,12 @@ model Match {
 
   status        MatchStatus
 
-  season        Season      @relation(feilds: [seasonId], references: [id])
-  venue         Venue?      @relation(fields: [venueId], references: [id])
+  season        Season      @relation(feilds: [seasonId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  venue         Venue?      @relation(fields: [venueId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
-  homeTeam      Team        @relation("HomeTeam", fields: [homeTeamId], references: [id])
+  homeTeam      Team        @relation("HomeTeam", fields: [homeTeamId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
-  awayTeam      Team        @relation("AwayTeam", fields: [awayTeamId], references: [id])
+  awayTeam      Team        @relation("AwayTeam", fields: [awayTeamId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
   matchSets         MatchSet[]
   matchEvents       MatchEvent[]

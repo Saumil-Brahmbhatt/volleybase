@@ -21,8 +21,8 @@ model Standing {
 
   rank             Int?
 
-  season           Season @relation(fields: [seasonId], references: [id])
-  team             Team   @relation(fields: [teamId], references: [id])
+  season           Season @relation(fields: [seasonId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  team             Team   @relation(fields: [teamId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
