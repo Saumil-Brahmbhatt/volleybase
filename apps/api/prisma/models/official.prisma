@@ -11,6 +11,8 @@ model Official {
 
   status        OfficialStatus
 
+  matchOfficials MatchOfficial[]
+
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }

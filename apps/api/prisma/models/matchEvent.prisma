@@ -4,7 +4,7 @@ model MatchEvent {
   eventId       String      @unique
 
   matchId       String
-  setId         String
+  matchSetId    String
 
   teamId        String
 
@@ -13,6 +13,13 @@ model MatchEvent {
   eventType     EventType
   eventTime     DateTime
 
+  match        Match @relation(fields: [matchId], references: [id])
+
+  matchSet     MatchSet @relation(fields: [matchSetId], references: [id])
+
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
+
+  @@index([matchId])
+  @@index([matchSetId])
 }

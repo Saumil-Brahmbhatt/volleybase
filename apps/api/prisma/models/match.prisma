@@ -22,11 +22,29 @@ model Match {
 
   currentSet    Int
 
-  homeSetsWon   Int @default(0)
-  awaySetsWon   Int @default(0)
+  homeSetsWon   Int         @default(0)
+  awaySetsWon   Int         @default(0)
 
   status        MatchStatus
 
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  season        Season      @relation(feilds: [seasonId], references: [id])
+  venue         Venue?      @relation(fields: [venueId], references: [id])
+
+  homeTeam      Team        @relation("HomeTeam", fields: [homeTeamId], references: [id])
+
+  awayTeam      Team        @relation("AwayTeam", fields: [awayTeamId], references: [id])
+
+  matchSets         MatchSet[]
+  matchEvents       MatchEvent[]
+  matchOfficials    MatchOfficial[]
+  playerMatchStats  PlayerMatchStats[]
+  teamMatchStats    TeamMatchStats[]
+
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@index([seasonId])
+  @@index([venueId])
+  @@index([homeTeamId])
+  @@index([awayTeamId])
 }

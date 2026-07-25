@@ -12,6 +12,7 @@ model Venue {
   status        VenueStatus
 
   teams         Team[]
+  matches       Match[]
 
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
