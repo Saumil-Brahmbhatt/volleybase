@@ -1,0 +1,18 @@
+model MatchEvent {
+  id            String      @id @default(cuid())
+
+  eventId       String      @unique
+
+  matchId       String
+  setId         String
+
+  teamId        String
+
+  playerId      String?
+
+  eventType     EventType
+  eventTime     DateTime
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}

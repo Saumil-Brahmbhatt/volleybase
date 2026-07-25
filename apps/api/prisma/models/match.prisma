@@ -1,0 +1,32 @@
+model Match {
+  id            String      @id @default(cuid())
+
+  matchId       String      @unique
+
+  seasonId      String
+  venueId       String?
+
+  homeTeamId    String
+  awayTeamId    String
+
+  matchNumber   Int?
+
+  round         String
+
+  scheduledAt   DateTime
+  startedAt     DateTime?
+  endedAt       DateTime?
+
+  bestOfSets    Int
+  winningSets   Int
+
+  currentSet    Int
+
+  homeSetsWon   Int @default(0)
+  awaySetsWon   Int @default(0)
+
+  status        MatchStatus
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}

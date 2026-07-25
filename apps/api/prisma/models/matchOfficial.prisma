@@ -1,0 +1,14 @@
+model MatchOfficial {
+  id                String      @id @default(cuid())
+
+  matchOfficialId   String      @unique
+
+  matchId           String
+
+  officialId        String
+
+  role              OfficialRole
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}

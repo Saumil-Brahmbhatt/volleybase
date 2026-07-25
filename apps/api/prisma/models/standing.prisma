@@ -1,0 +1,30 @@
+model Standing {
+  id               String @id @default(cuid())
+
+  standingId       String @unique
+
+  seasonId         String
+
+  teamId           String
+
+  matchesPlayed    Int @default(0)
+
+  wins             Int @default(0)
+
+  losses           Int @default(0)
+
+  setsWon          Int @default(0)
+
+  setsLost         Int @default(0)
+
+  pointsWon        Int @default(0)
+
+  pointsLost       Int @default(0)
+
+  leaguePoints     Int @default(0)
+
+  rank             Int?
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}

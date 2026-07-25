@@ -93,3 +93,9 @@ enum VenueStatus {
   ACTIVE
   INACTIVE
 }
+
+enum OfficialStatus {
+  ACTIVE
+  INACTIVE
+  RETIRED
+}

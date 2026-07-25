@@ -1,0 +1,16 @@
+model Official {
+  id            String         @id @default(cuid())
+
+  officialId    String         @unique
+
+  fullName      String
+
+  nationality   String
+
+  role          OfficialRole
+
+  status        OfficialStatus
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}

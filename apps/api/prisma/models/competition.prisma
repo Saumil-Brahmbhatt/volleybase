@@ -18,6 +18,12 @@ model Competition {
 
   status            CompetitionStatus
 
+  organization      Organization        @relation(feilds: [organizationId], refrences: [id])
+
+  seasons           Season[]
+
   createdAt         DateTime            @default(now())
   updatedAt         DateTime            @updatedAt
+
+  @@index([organizationId])
 }

@@ -1,0 +1,44 @@
+model PlayerMatchStats {
+  id                     String @id @default(cuid())
+
+  playerMatchStatsId     String @unique
+
+  matchId                String
+
+  playerId               String
+
+  teamId                 String
+
+  setsPlayed             Int @default(0)
+
+  points                 Int @default(0)
+
+  attackPoints           Int @default(0)
+
+  blockPoints            Int @default(0)
+
+  acePoints              Int @default(0)
+
+  attackAttempts         Int @default(0)
+
+  attackErrors           Int @default(0)
+
+  receptionAttempts      Int @default(0)
+
+  receptionErrors        Int @default(0)
+
+  digs                   Int @default(0)
+
+  assists                Int @default(0)
+
+  serviceAttempts        Int @default(0)
+
+  serviceErrors          Int @default(0)
+
+  yellowCards            Int @default(0)
+
+  redCards               Int @default(0)
+
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+}

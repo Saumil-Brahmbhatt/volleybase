@@ -12,6 +12,8 @@ model Organization {
 
   status         OrganizationStatus
 
+  competitions   Competition[]
+
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }

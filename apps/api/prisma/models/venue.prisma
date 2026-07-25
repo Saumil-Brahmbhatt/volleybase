@@ -9,9 +9,6 @@ model Venue {
 
   city          String
 
-  country       String
-  countryCode   String
-
   capacity      Int?
 
   status        VenueStatus
