@@ -4,6 +4,8 @@ import {
   getOrganizations,
   getOrganization,
   createOrganization,
+  updateOrganization,
+  deleteOrganization,
 } from "./service";
 
 export async function getAllOrganizations(
@@ -54,6 +56,42 @@ export async function create(
       success: true,
       data: organization,
     });
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function update(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  try {
+    const organization = await updateOrganization(
+      req.params.organizationId,
+      req.body
+    );
+
+    res.json({
+      success: true,
+      data: organization,
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function remove(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  try {
+    await deleteOrganization(
+      req.params.organizationId
+    );
+
+    res.status(204).send();
   } catch (error) {
     next(error);
   }

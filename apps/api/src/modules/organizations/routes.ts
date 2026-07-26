@@ -4,25 +4,38 @@ import {
   getAllOrganizations,
   getOrganizationById,
   create,
+  update,
+  remove,
 } from "./controller";
 
 import { validate } from "../../lib/validation";
-import { createOrganizationSchema } from "./validation";
 
-const router = Router(); // 👈 This must exist BEFORE router.get/post
+import {
+  createOrganizationSchema,
+  updateOrganizationSchema,
+} from "./validation";
+
+const router = Router();
 
 router.get("/", getAllOrganizations);
 
 router.get("/:organizationId", getOrganizationById);
 
-console.log(create);
-console.log(validate);
-console.log(createOrganizationSchema);
-
 router.post(
   "/",
   validate(createOrganizationSchema),
   create
+);
+
+router.patch(
+  "/:organizationId",
+  validate(updateOrganizationSchema),
+  update
+);
+
+router.delete(
+    "/:organizationId",
+    remove
 );
 
 export default router;

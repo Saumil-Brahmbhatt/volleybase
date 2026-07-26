@@ -12,6 +12,7 @@ import {
 
 import {
   CreateOrganizationDto,
+  UpdateOrganizationDto,
 } from "./dto";
 
 import {
@@ -51,12 +52,8 @@ export async function createOrganization(
   const existing = await prisma.organization.findFirst({
     where: {
       OR: [
-        {
-          name: dto.name,
-        },
-        {
-          shortName: dto.shortName,
-        },
+        { name: dto.name },
+        { shortName: dto.shortName },
       ],
     },
   });
@@ -70,18 +67,64 @@ export async function createOrganization(
   const organization = await prisma.organization.create({
     data: {
       organizationId: await IdService.generate("organization"),
-
       slug: generateSlug(dto.name),
-
       name: dto.name,
-
       shortName: dto.shortName,
-
-      status:
-        dto.status ??
-        OrganizationStatus.ACTIVE,
+      status: dto.status ?? OrganizationStatus.ACTIVE,
     },
   });
 
   return toOrganizationDetailsDto(organization);
+}
+
+export async function updateOrganization(
+  organizationId: string,
+  dto: UpdateOrganizationDto
+) {
+  const organization = await prisma.organization.findUnique({
+    where: {
+      organizationId,
+    },
+  });
+
+  if (!organization) {
+    throw new NotFoundError("Organization");
+  }
+
+  const data: any = {
+    ...dto,
+  };
+
+  if (dto.name) {
+    data.slug = generateSlug(dto.name);
+  }
+
+  const updated = await prisma.organization.update({
+    where: {
+      organizationId,
+    },
+    data,
+  });
+
+  return toOrganizationDetailsDto(updated);
+}
+
+export async function deleteOrganization(
+  organizationId: string
+) {
+  const organization = await prisma.organization.findUnique({
+    where: {
+      organizationId,
+    },
+  });
+
+  if (!organization) {
+    throw new NotFoundError("Organization");
+  }
+
+  await prisma.organization.delete({
+    where: {
+      organizationId,
+    },
+  });
 }
