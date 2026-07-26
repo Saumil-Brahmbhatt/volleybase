@@ -13,9 +13,9 @@ model MatchEvent {
   eventType     EventType
   eventTime     DateTime
 
-  match        Match @relation(fields: [matchId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  match        Match @relation(fields: [matchId], references: [matchId], onDelete: Restrict, onUpdate: Cascade)
 
-  matchSet     MatchSet @relation(fields: [matchSetId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  matchSet     MatchSet @relation(fields: [matchSetId], references: [matchSetId], onDelete: Restrict, onUpdate: Cascade)
 
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt

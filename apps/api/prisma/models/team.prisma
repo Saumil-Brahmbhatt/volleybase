@@ -18,8 +18,8 @@ model Team {
 
   status           TeamStatus
 
-  organization     Organization? @relation(fields: [organizationId], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  homeVenue        Venue?        @relation(fields: [homeVenueId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  organization     Organization? @relation(fields: [organizationId], references: [organizationId], onDelete: Restrict, onUpdate: Cascade)
+  homeVenue        Venue?        @relation(fields: [homeVenueId], references: [venueId], onDelete: Restrict, onUpdate: Cascade)
 
   playerSeasons    PlayerSeason[]
   teamMatchStats   TeamMatchStats[]

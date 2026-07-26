@@ -14,7 +14,7 @@ model MatchSet {
 
   winnerTeamId    String?
   
-  match           Match @relation(fields: [matchId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  match           Match @relation(fields: [matchId], references: [matchId], onDelete: Restrict, onUpdate: Cascade)
 
   events          MatchEvent[]
 

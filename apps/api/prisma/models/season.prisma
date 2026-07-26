@@ -15,7 +15,7 @@ model Season {
 
   status         SeasonStatus
 
-  competition    Competition   @relation(fields: [competitionId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  competition    Competition   @relation(fields: [competitionId], references: [competitionId], onDelete: Restrict, onUpdate: Cascade)
 
   playerSeasons  PlayerSeason[]
   matches        Match[]

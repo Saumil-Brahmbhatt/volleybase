@@ -7,6 +7,7 @@ import { errorMiddleware } from "./middleware/error.middleware";
 import { notFound } from "./middleware/notFound.middleware";
 import { playerRoutes } from "./modules/players";
 import { organizationRoutes } from "./modules/organizations";
+import competitionRoutes from "./modules/competitions";
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(morgan("dev"));
 app.use("/api/v1/health", healthRoutes);
 app.use("/api/v1/players", playerRoutes);
 app.use("/api/v1/organizations", organizationRoutes);
+app.use("/api/v1/competitions", competitionRoutes);
 
 app.get("/", (_req, res) => {
   res.json({
