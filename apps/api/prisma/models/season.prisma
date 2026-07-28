@@ -6,11 +6,13 @@ model Season {
   competitionId  String
 
   name           String
+  shortName      String?
 
   seasonYear     Int
 
-  startDate      DateTime
+  slug           String        @unique
 
+  startDate      DateTime
   endDate        DateTime
 
   status         SeasonStatus

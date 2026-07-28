@@ -8,6 +8,7 @@ import { notFound } from "./middleware/notFound.middleware";
 import { playerRoutes } from "./modules/players";
 import { organizationRoutes } from "./modules/organizations";
 import competitionRoutes from "./modules/competitions";
+import seasonRoutes from "./modules/seasons";
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use("/api/v1/health", healthRoutes);
 app.use("/api/v1/players", playerRoutes);
 app.use("/api/v1/organizations", organizationRoutes);
 app.use("/api/v1/competitions", competitionRoutes);
+app.use("/api/v1/seasons", seasonRoutes);
 
 app.get("/", (_req, res) => {
   res.json({
