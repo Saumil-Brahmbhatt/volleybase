@@ -5,7 +5,7 @@ model Team {
 
   slug             String      @unique
 
-  organizationId   String?
+  organizationId   String
   homeVenueId      String?
 
   name             String
@@ -31,6 +31,8 @@ model Team {
 
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
+
+  @@unique([organizationId, name])
 
   @@index([organizationId])
   @@index([homeVenueId])

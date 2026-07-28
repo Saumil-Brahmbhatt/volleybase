@@ -9,6 +9,7 @@ import { playerRoutes } from "./modules/players";
 import { organizationRoutes } from "./modules/organizations";
 import competitionRoutes from "./modules/competitions";
 import seasonRoutes from "./modules/seasons";
+import teamRoutes from "./modules/teams"
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use("/api/v1/players", playerRoutes);
 app.use("/api/v1/organizations", organizationRoutes);
 app.use("/api/v1/competitions", competitionRoutes);
 app.use("/api/v1/seasons", seasonRoutes);
+app.use("/api/v1/teams", teamRoutes)
 
 app.get("/", (_req, res) => {
   res.json({
