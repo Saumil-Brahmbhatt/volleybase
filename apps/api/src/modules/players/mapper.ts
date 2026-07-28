@@ -1,51 +1,72 @@
 import { Player } from "@prisma/client";
-import { PlayerSummaryDto, PlayerDetailsDto } from "./dto";
 
-export const toPlayerSummaryDto = (
+import {
+  PlayerSummaryDto,
+  PlayerDetailsDto,
+} from "./dto";
+
+export function toPlayerSummaryDto(
   player: Player
-): PlayerSummaryDto => ({
-  playerId: player.playerId,
-  slug: player.slug,
+): PlayerSummaryDto {
+  return {
+    playerId: player.playerId,
 
-  fullName: player.fullName,
-  shortName: player.shortName,
+    slug: player.slug,
 
-  nationality: player.nationality,
+    fullName: player.fullName,
 
-  position: player.position,
+    shortName: player.shortName,
 
-  status: player.status,
-});
+    nationality: player.nationality,
 
-export const toPlayerDetailsDto = (
+    position: player.position,
+
+    status: player.status,
+  };
+}
+
+export function toPlayerDetailsDto(
   player: Player
-): PlayerDetailsDto => ({
-  playerId: player.playerId,
-  slug: player.slug,
+): PlayerDetailsDto {
+  return {
+    playerId: player.playerId,
 
-  fullName: player.fullName,
-  shortName: player.shortName,
+    slug: player.slug,
 
-  firstName: player.firstName,
-  lastName: player.lastName,
-  nativeName: player.nativeName,
+    fullName: player.fullName,
 
-  gender: player.gender,
+    shortName: player.shortName,
 
-  nationality: player.nationality,
+    firstName: player.firstName,
 
-  birthDate: player.birthDate.toISOString(),
-  birthPlace: player.birthPlace,
+    lastName: player.lastName,
 
-  heightCm: player.heightCm,
-  weightKg: player.weightKg,
+    nativeName: player.nativeName,
 
-  spikeReachCm: player.spikeReachCm,
-  blockReachCm: player.blockReachCm,
+    gender: player.gender,
 
-  dominantHand: player.dominantHand,
+    nationality: player.nationality,
 
-  position: player.position,
+    birthDate: player.birthDate,
 
-  status: player.status,
-});
+    birthPlace: player.birthPlace,
+
+    heightCm: player.heightCm,
+
+    weightKg: player.weightKg,
+
+    spikeReachCm: player.spikeReachCm,
+
+    blockReachCm: player.blockReachCm,
+
+    dominantHand: player.dominantHand,
+
+    position: player.position,
+
+    status: player.status,
+
+    createdAt: player.createdAt,
+
+    updatedAt: player.updatedAt,
+  };
+}

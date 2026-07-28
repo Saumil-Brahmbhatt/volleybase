@@ -14,7 +14,7 @@ export interface PlayerDetailsDto {
   nationality: string;
 
   birthDate: string;
-  birthPlace: string;
+  birthPlace: string | null;
 
   heightCm: number;
   weightKg: number | null;
@@ -27,4 +27,8 @@ export interface PlayerDetailsDto {
   position: string;
 
   status: string;
+
+  createdAt: Date;
+
+  updatedAt: Date;
 }

@@ -1,5 +1,1 @@
-export { default as playerRoutes } from "./routes";
-
-export * from "./controller";
-export * from "./service";
-export * from "./mapper";
+export { default } from "./routes";

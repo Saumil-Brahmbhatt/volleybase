@@ -1,29 +1,40 @@
-export interface CreatePlayerDto {
-  slug: string;
+import {
+  Gender,
+  PlayerStatus,
+  Position,
+  DominantHand,
+} from "@prisma/client";
 
+export interface CreatePlayerDto {
   fullName: string;
+
   shortName: string;
 
   firstName: string;
+
   lastName: string;
+
   nativeName?: string;
 
-  gender: string;
+  gender: Gender;
 
   nationality: string;
 
-  birthDate: string;
-  birthPlace: string;
+  birthDate: Date;
+
+  birthPlace?: string;
 
   heightCm: number;
-  weightKg?: number;
+
+  weightKg: number;
 
   spikeReachCm?: number;
+
   blockReachCm?: number;
 
-  dominantHand: string;
+  dominantHand: DominantHand;
 
-  position: string;
+  position: Position;
 
-  status: string;
+  status?: PlayerStatus;
 }
