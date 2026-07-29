@@ -21,7 +21,7 @@ model PlayerSeason {
 
   leftAt             DateTime?
 
-  status             PlayerStatus
+  status             PlayerStatus @default(ACTIVE)
 
   player             Player      @relation(fields: [playerId], references: [playerId], onDelete: Restrict, onUpdate: Cascade)
   team               Team        @relation(fields: [teamId], references: [teamId], onDelete: Restrict, onUpdate: Cascade)
@@ -35,4 +35,5 @@ model PlayerSeason {
   @@index([seasonId])
 
   @@unique([playerId, seasonId])
+  @@unique([teamId, seasonId, jerseyNumber])
 }

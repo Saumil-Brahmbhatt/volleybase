@@ -64,7 +64,8 @@ const playerSchema = z.object({
   weightKg: z
     .number()
     .min(30)
-    .max(180),
+    .max(180)
+    .optional(),
 
   spikeReachCm: z
     .number()

@@ -15,7 +15,7 @@ model Player {
   nationality    String
 
   birthDate      DateTime
-  birthPlace     String
+  birthPlace     String?
 
   heightCm       Int
   weightKg       Int?
