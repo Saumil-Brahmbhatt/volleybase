@@ -9,7 +9,7 @@ model Venue {
 
   capacity      Int?
 
-  status        VenueStatus
+  status        VenueStatus @default(ACTIVE)
 
   teams         Team[]
   matches       Match[]

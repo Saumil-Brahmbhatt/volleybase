@@ -8,6 +8,7 @@ import { notFound } from "./middleware/notFound.middleware";
 import { playerRoutes } from "./modules/players";
 import { organizationRoutes } from "./modules/organizations";
 import { playerSeasonRoutes } from "./modules/player-seasons";
+import { venueRoutes } from "./modules/venues";
 import competitionRoutes from "./modules/competitions";
 import seasonRoutes from "./modules/seasons";
 import teamRoutes from "./modules/teams";
@@ -27,6 +28,7 @@ app.use("/api/v1/seasons", seasonRoutes);
 app.use("/api/v1/teams", teamRoutes);
 app.use("/api/v1/players", playerRoutes);
 app.use("/api/v1/player-seasons", playerSeasonRoutes);
+app.use("/api/v1/venues", venueRoutes);
 
 app.get("/", (_req, res) => {
   res.json({
