@@ -9,7 +9,7 @@ model Official {
 
   role          OfficialRole
 
-  status        OfficialStatus
+  status        OfficialStatus  @default(ACTIVE)
 
   matchOfficials MatchOfficial[]
 
